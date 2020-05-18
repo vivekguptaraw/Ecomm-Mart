@@ -8,19 +8,12 @@
 
 import Foundation
 
-final class ApiRequestManager {
-    static let shared: ApiRequestManager = ApiRequestManager()
-    
-    private init() {
-        
-    }
-    
-    func setUp() {
-        
-    }
+final class ServiceManager {
+    static let shared: ServiceManager = ServiceManager()
+    private init() {}
 }
 
-extension ApiRequestManager: IAPIs {
+extension ServiceManager: IAPIs {
     func fetchCategories(completion: @escaping (ProductAPIResource.ModelType?) -> Void) {
         let resource = ProductAPIResource()
         let request = APIRequest(resource: resource)
