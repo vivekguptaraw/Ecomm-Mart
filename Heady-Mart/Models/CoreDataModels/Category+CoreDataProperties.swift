@@ -57,3 +57,4 @@ extension Category {
     @NSManaged public func removeFromProducts(_ values: NSSet)
 
 }
+

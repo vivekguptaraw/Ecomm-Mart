@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		806FE0F824729D8D00A38F65 /* CategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806FE0F724729D8D00A38F65 /* CategoryHeaderView.swift */; };
+		806FE0FA24729DAA00A38F65 /* CategoryHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 806FE0F924729DAA00A38F65 /* CategoryHeaderView.xib */; };
+		806FE0FD2472A00400A38F65 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806FE0FB2472A00400A38F65 /* CategoryCollectionViewCell.swift */; };
+		806FE0FE2472A00400A38F65 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 806FE0FC2472A00400A38F65 /* CategoryCollectionViewCell.xib */; };
+		806FE1012472A6B300A38F65 /* NibLoabable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806FE1002472A6B300A38F65 /* NibLoabable.swift */; };
+		806FE1032472A81100A38F65 /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806FE1022472A81100A38F65 /* ConfigurableCell.swift */; };
+		80EAD50E2474D13B002C2FCE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAD50D2474D13B002C2FCE /* HomeViewModel.swift */; };
+		80EAD5102474D459002C2FCE /* CategoryProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAD50F2474D459002C2FCE /* CategoryProductViewModel.swift */; };
+		80EAD5122474FF7B002C2FCE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAD5112474FF7B002C2FCE /* UIColor.swift */; };
 		80EB213D2471271200D94984 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EB213C2471271200D94984 /* AppDelegate.swift */; };
 		80EB213F2471271200D94984 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EB213E2471271200D94984 /* SceneDelegate.swift */; };
 		80EB21412471271200D94984 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EB21402471271200D94984 /* HomeViewController.swift */; };
@@ -52,6 +61,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		806FE0F724729D8D00A38F65 /* CategoryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHeaderView.swift; sourceTree = "<group>"; };
+		806FE0F924729DAA00A38F65 /* CategoryHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryHeaderView.xib; sourceTree = "<group>"; };
+		806FE0FB2472A00400A38F65 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		806FE0FC2472A00400A38F65 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		806FE1002472A6B300A38F65 /* NibLoabable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoabable.swift; sourceTree = "<group>"; };
+		806FE1022472A81100A38F65 /* ConfigurableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
+		80EAD50D2474D13B002C2FCE /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		80EAD50F2474D459002C2FCE /* CategoryProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryProductViewModel.swift; sourceTree = "<group>"; };
+		80EAD5112474FF7B002C2FCE /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		80EB21392471271200D94984 /* Heady-Mart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Heady-Mart.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		80EB213C2471271200D94984 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80EB213E2471271200D94984 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +127,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		806FE0F624729D1B00A38F65 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				806FE0F724729D8D00A38F65 /* CategoryHeaderView.swift */,
+				806FE0F924729DAA00A38F65 /* CategoryHeaderView.xib */,
+				806FE0FB2472A00400A38F65 /* CategoryCollectionViewCell.swift */,
+				806FE0FC2472A00400A38F65 /* CategoryCollectionViewCell.xib */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		806FE0FF2472A60500A38F65 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				806FE1002472A6B300A38F65 /* NibLoabable.swift */,
+				806FE1022472A81100A38F65 /* ConfigurableCell.swift */,
+				80EAD5112474FF7B002C2FCE /* UIColor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		80EB21302471271200D94984 = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +169,7 @@
 		80EB213B2471271200D94984 /* Heady-Mart */ = {
 			isa = PBXGroup;
 			children = (
+				806FE0FF2472A60500A38F65 /* Extensions */,
 				80F76DB92471A798001E88B1 /* ViewModel */,
 				80F76DB72471A41B001E88B1 /* Views */,
 				80F76DB42471A2C6001E88B1 /* Custom */,
@@ -276,6 +316,7 @@
 		80F76DB82471A423001E88B1 /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
+				806FE0F624729D1B00A38F65 /* Header */,
 				80EB21402471271200D94984 /* HomeViewController.swift */,
 			);
 			path = HomeScreen;
@@ -284,6 +325,8 @@
 		80F76DB92471A798001E88B1 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				80EAD50D2474D13B002C2FCE /* HomeViewModel.swift */,
+				80EAD50F2474D459002C2FCE /* CategoryProductViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -370,6 +413,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				80EB214C2471271400D94984 /* LaunchScreen.storyboard in Resources */,
+				806FE0FE2472A00400A38F65 /* CategoryCollectionViewCell.xib in Resources */,
+				806FE0FA24729DAA00A38F65 /* CategoryHeaderView.xib in Resources */,
 				80EB21492471271400D94984 /* Assets.xcassets in Resources */,
 				80EB21442471271200D94984 /* Main.storyboard in Resources */,
 			);
@@ -390,7 +435,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				80F76D8E24714E84001E88B1 /* Tax+CoreDataProperties.swift in Sources */,
+				80EAD50E2474D13B002C2FCE /* HomeViewModel.swift in Sources */,
 				80F76D9A24715245001E88B1 /* ProductAPIResource.swift in Sources */,
+				806FE1032472A81100A38F65 /* ConfigurableCell.swift in Sources */,
 				80F76DAC24715CDC001E88B1 /* Product+CoreDataClass.swift in Sources */,
 				80EB21412471271200D94984 /* HomeViewController.swift in Sources */,
 				80F76D8D24714E84001E88B1 /* Tax+CoreDataClass.swift in Sources */,
@@ -402,9 +449,11 @@
 				80F76D8B24714E84001E88B1 /* ChildCategory+CoreDataClass.swift in Sources */,
 				80F76DB62471A2DC001E88B1 /* CarouselLayout.swift in Sources */,
 				80EB213D2471271200D94984 /* AppDelegate.swift in Sources */,
+				80EAD5102474D459002C2FCE /* CategoryProductViewModel.swift in Sources */,
 				80F76D8724714E84001E88B1 /* Category+CoreDataClass.swift in Sources */,
 				80F76D8524714E84001E88B1 /* Variants+CoreDataClass.swift in Sources */,
 				80F76D9C247152E6001E88B1 /* IAPIs.swift in Sources */,
+				806FE0FD2472A00400A38F65 /* CategoryCollectionViewCell.swift in Sources */,
 				80F76D8824714E84001E88B1 /* Category+CoreDataProperties.swift in Sources */,
 				80F76D93247150AE001E88B1 /* INetworkRequestable.swift in Sources */,
 				80F76DA1247153A0001E88B1 /* APIRequestManager.swift in Sources */,
@@ -413,10 +462,13 @@
 				80F76D8624714E84001E88B1 /* Variants+CoreDataProperties.swift in Sources */,
 				80F76DB1247162BF001E88B1 /* CoreDataManager.swift in Sources */,
 				80F76D1424714652001E88B1 /* CategoryRankingAPIResponse.swift in Sources */,
+				806FE0F824729D8D00A38F65 /* CategoryHeaderView.swift in Sources */,
+				80EAD5122474FF7B002C2FCE /* UIColor.swift in Sources */,
 				80F76DAE24715CDC001E88B1 /* Ranking+CoreDataClass.swift in Sources */,
 				80F76D9124714FEB001E88B1 /* IHttpRequestGenerator.swift in Sources */,
 				80EB213F2471271200D94984 /* SceneDelegate.swift in Sources */,
 				80F76D9F24715357001E88B1 /* APIRequest.swift in Sources */,
+				806FE1012472A6B300A38F65 /* NibLoabable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
