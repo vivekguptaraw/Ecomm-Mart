@@ -6,7 +6,7 @@
 //  Copyright © 2020 Vivek Gupta. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class CategoryViewModel {
     
@@ -36,9 +36,12 @@ class CategoryViewModel {
             for index in grandLeaf {
                 grandLeafs.append(getCategory(id: Int16(index.id))!)
             }
-            if let grandleafCat = getCategory(id: Int16(grandLeafs[grandLeafIndex].id)) {
-                grandLeafCategory = grandleafCat
+            if grandLeafs.count > grandLeafIndex {
+                if let grandleafCat = getCategory(id: Int16(grandLeafs[grandLeafIndex].id)) {
+                    grandLeafCategory = grandleafCat
+                }
             }
+            
         }
     }
     
@@ -47,4 +50,14 @@ class CategoryViewModel {
     }
     
     
+}
+
+extension CategoryViewModel: ProductDetailProtocol {
+    func showProductDetail(nav: UINavigationController?, product: Product) {
+        if let vc = Helper.getViewControllerFromStoryboard(toStoryBoard: .Main, initialViewControllerIdentifier: ProductViewController.storyBoardID) as? ProductViewController {
+            vc.viewModel = ProductViewModel()
+            vc.viewModel?.product = product
+            nav?.pushViewController(vc, animated: true)
+        }
+    }
 }

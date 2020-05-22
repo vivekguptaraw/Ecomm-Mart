@@ -55,12 +55,12 @@ extension CategoryHeaderView: UICollectionViewDataSource, UICollectionViewDelega
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.defaultNibName, for: indexPath) as? CategoryCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+        //cell.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         cell.titleLabel.text = categories[indexPath.row].name ?? ""
         cell.titleLabel.textColor = .white
-        cell.layer.cornerRadius = 12
-        cell.layer.borderWidth = 1
-        cell.clipsToBounds = true
+//        cell.layer.cornerRadius = 12
+//        cell.layer.borderWidth = 1
+//        cell.clipsToBounds = true
         return cell
     }
     

@@ -2,7 +2,7 @@
 //  Product+CoreDataProperties.swift
 //  Heady-Mart
 //
-//  Created by Vivek Gupta on 17/05/20.
+//  Created by Vivek Gupta on 22/05/20.
 //  Copyright © 2020 Vivek Gupta. All rights reserved.
 //
 //
@@ -17,33 +17,16 @@ extension Product {
         return NSFetchRequest<Product>(entityName: "Product")
     }
 
+    @NSManaged public var dateAdded: Date?
     @NSManaged public var id: Int16
     @NSManaged public var name: String?
-    @NSManaged public var dateAdded: Date?
-    @NSManaged public var viewsCount: Int64
-    @NSManaged public var shareCount: Int64
     @NSManaged public var ordersCount: Int64
-    @NSManaged public var variants: NSSet?
-    @NSManaged public var tax: Tax?
-    @NSManaged public var ranking: NSSet?
+    @NSManaged public var shareCount: Int64
+    @NSManaged public var viewsCount: Int64
     @NSManaged public var category: Category?
-
-}
-
-// MARK: Generated accessors for variants
-extension Product {
-
-    @objc(addVariantsObject:)
-    @NSManaged public func addToVariants(_ value: Variants)
-
-    @objc(removeVariantsObject:)
-    @NSManaged public func removeFromVariants(_ value: Variants)
-
-    @objc(addVariants:)
-    @NSManaged public func addToVariants(_ values: NSSet)
-
-    @objc(removeVariants:)
-    @NSManaged public func removeFromVariants(_ values: NSSet)
+    @NSManaged public var ranking: NSSet?
+    @NSManaged public var tax: Tax?
+    @NSManaged public var variants: NSSet?
 
 }
 
@@ -61,5 +44,22 @@ extension Product {
 
     @objc(removeRanking:)
     @NSManaged public func removeFromRanking(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for variants
+extension Product {
+
+    @objc(addVariantsObject:)
+    @NSManaged public func addToVariants(_ value: Variants)
+
+    @objc(removeVariantsObject:)
+    @NSManaged public func removeFromVariants(_ value: Variants)
+
+    @objc(addVariants:)
+    @NSManaged public func addToVariants(_ values: NSSet)
+
+    @objc(removeVariants:)
+    @NSManaged public func removeFromVariants(_ values: NSSet)
 
 }

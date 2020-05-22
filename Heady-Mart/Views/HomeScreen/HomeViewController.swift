@@ -36,7 +36,10 @@ class HomeViewController: UIViewController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        self.footer.frame = self.bottomView.bounds
+        header.frame = topView.bounds
+        footer.frame = bottomView.bounds
+        trendingHeaderCollectionView.frame = CGRect(x: 0, y: 0, width: self.bottomView.frame.width, height: Sizes.trendingHeaderHeight)
+        trendingContentCollectionView.frame = CGRect(x: 0, y: trendingHeaderCollectionView.frame.maxY, width: self.bottomView.frame.width, height: bottomView.frame.height - trendingHeaderCollectionView.frame.height)
     }
     
     func setViewModel() {
@@ -92,7 +95,7 @@ class HomeViewController: UIViewController {
     func setRankingContent(index: Int) {
         guard let state = viewModel?.state, let ranking = state.rankings, ranking.count > 0, let products = ranking[index].product?.allObjects as? [Product] else {return}
         self.viewModel?.trendingContentDataSource = TrendingContent(collectionView: self.trendingContentCollectionView, array: products)
-//        self.viewModel?.trendingContentDataSource?.collectionItemSelectionHandler = trendingHeaderSelected
+        self.viewModel?.trendingContentDataSource?.collectionItemSelectionHandler = trendingProductelected
         setLayout(collectionVw: trendingContentCollectionView)
     }
     
@@ -103,8 +106,14 @@ class HomeViewController: UIViewController {
         if let products = self.viewModel?.getProductForRanking(index: indexPath.item) {
             self.viewModel?.trendingContentDataSource?.provider.items = [products]
             self.viewModel?.trendingContentDataSource?.collectionView.reloadData()
-            self.viewModel?.trendingContentDataSource?.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
+            self.viewModel?.trendingContentDataSource?.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: false)
             
+        }
+    }
+    
+    func trendingProductelected(indexPath: IndexPath) {
+        if let products = self.viewModel?.trendingContentDataSource?.provider.items, let prods = products.first {
+            self.viewModel?.showProductDetail(nav: self.navigationController, product: prods[indexPath.item])
         }
         
     }
@@ -134,7 +143,7 @@ class HomeViewController: UIViewController {
         let viewLayout1 = UICollectionViewFlowLayout()
         let viewLayout2 = UICollectionViewFlowLayout()
 
-        trendingHeaderCollectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: self.bottomView.frame.width, height: UIScreen.main.bounds.width * 0.18), collectionViewLayout: viewLayout1)
+        trendingHeaderCollectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: self.bottomView.frame.width, height: Sizes.trendingHeaderHeight), collectionViewLayout: viewLayout1)
         trendingContentCollectionView = UICollectionView(frame: CGRect(x: 0, y: trendingHeaderCollectionView.frame.maxY, width: self.bottomView.frame.width, height: bottomView.frame.height - trendingHeaderCollectionView.frame.height), collectionViewLayout: viewLayout2)
         trendingHeaderCollectionView.register(TrendingHeaderCollectionViewCell.defaultNib, forCellWithReuseIdentifier: TrendingHeaderCollectionViewCell.defaultNibName)
         trendingContentCollectionView.register(TrendingContentCollectionViewCell.defaultNib, forCellWithReuseIdentifier: TrendingContentCollectionViewCell.defaultNibName)
@@ -157,4 +166,8 @@ extension HomeViewController: ICategoriesHeaderDelegate {
     }
 }
 
-
+extension HomeViewController {
+    struct Sizes {
+        static let trendingHeaderHeight: CGFloat = UIScreen.main.bounds.width * 0.18
+    }
+}

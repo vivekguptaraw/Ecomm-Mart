@@ -6,7 +6,7 @@
 //  Copyright © 2020 Vivek Gupta. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class HomeViewModel: CategoryProductViewModel {
     fileprivate(set) var state: CategoryState = CategoryState()
@@ -40,7 +40,7 @@ class HomeViewModel: CategoryProductViewModel {
     func saveDataToDB(model: ProductAPIResource.ModelType) {
         CoreDataOperations.shared.insertDataIntoDB(categoryRankingResponse: model, completion: {[weak self] success in
             guard let slf = self else {return}
-            //slf.fetchFromDB()
+            slf.fetchFromDB()
             slf.onChange?(.DBDataUpdated)
         })
     }
@@ -75,5 +75,15 @@ class HomeViewModel: CategoryProductViewModel {
             return products
         }
         return []
+    }
+}
+
+extension HomeViewModel: ProductDetailProtocol {
+    func showProductDetail(nav: UINavigationController?, product: Product) {
+        if let vc = Helper.getViewControllerFromStoryboard(toStoryBoard: .Main, initialViewControllerIdentifier: ProductViewController.storyBoardID) as? ProductViewController {
+            vc.viewModel = ProductViewModel()
+            vc.viewModel?.product = product
+            nav?.pushViewController(vc, animated: true)
+        }
     }
 }

@@ -21,5 +21,10 @@ class TrendingContentCollectionViewCell: UICollectionViewCell, ConfigurableCell 
     func configure(_ item: Product, at indexPath: IndexPath) {
         label.text = item.name
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.layer.cornerRadius = 12
+    }
 
 }

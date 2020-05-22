@@ -2,7 +2,7 @@
 //  Category+CoreDataProperties.swift
 //  Heady-Mart
 //
-//  Created by Vivek Gupta on 17/05/20.
+//  Created by Vivek Gupta on 22/05/20.
 //  Copyright © 2020 Vivek Gupta. All rights reserved.
 //
 //
@@ -57,4 +57,3 @@ extension Category {
     @NSManaged public func removeFromProducts(_ values: NSSet)
 
 }
-

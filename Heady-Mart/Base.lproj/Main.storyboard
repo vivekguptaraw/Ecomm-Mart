@@ -192,17 +192,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pq6-sL-wVU">
-                                <rect key="frame" x="0.0" y="44" width="414" height="200"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="200"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="Htp-bv-anV"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Lw2-9u-pVA">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
+                                <collectionViewLayout key="collectionViewLayout" id="u8j-3H-ubR" customClass="CarouselLayout" customModule="Heady_Mart" customModuleProvider="target"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="jzZ-dD-4fx">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -215,30 +210,32 @@
                                 </cells>
                             </collectionView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Mm3-Ui-X2G">
-                                <rect key="frame" x="0.0" y="254" width="414" height="30"/>
+                                <rect key="frame" x="0.0" y="258" width="414" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="W19-Ho-y9I"/>
                                 </constraints>
+                                <color key="pageIndicatorTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.54304901541095896" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="currentPageIndicatorTintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="4T8-XZ-g62">
-                                <rect key="frame" x="0.0" y="294" width="414" height="77.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="4T8-XZ-g62">
+                                <rect key="frame" x="0.0" y="298" width="414" height="216"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTC-C2-UEC">
-                                        <rect key="frame" x="20" y="8" width="42" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTC-C2-UEC">
+                                        <rect key="frame" x="20" y="8" width="50" height="50"/>
+                                        <fontDescription key="fontDescription" name="Kailasa-Bold" family="Kailasa" pointSize="22"/>
+                                        <color key="textColor" red="0.5" green="0.10351163791095891" blue="0.59597067636986301" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cac-mK-vy1">
-                                        <rect key="frame" x="20" y="28.5" width="42" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cac-mK-vy1">
+                                        <rect key="frame" x="20" y="83" width="50" height="50"/>
+                                        <fontDescription key="fontDescription" name="Kailasa-Bold" family="Kailasa" pointSize="22"/>
+                                        <color key="textColor" red="0.5" green="0.10351163791095891" blue="0.59597067636986301" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kwd-ho-49h">
-                                        <rect key="frame" x="20" y="49" width="42" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kwd-ho-49h">
+                                        <rect key="frame" x="20" y="158" width="50" height="50"/>
+                                        <fontDescription key="fontDescription" name="Kailasa-Bold" family="Kailasa" pointSize="22"/>
+                                        <color key="textColor" red="0.5" green="0.10351163791095891" blue="0.59597067636986301" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -249,7 +246,7 @@
                         <constraints>
                             <constraint firstItem="4T8-XZ-g62" firstAttribute="top" secondItem="pq6-sL-wVU" secondAttribute="bottom" constant="50" id="2UI-Sc-jKT"/>
                             <constraint firstItem="Mm3-Ui-X2G" firstAttribute="top" secondItem="pq6-sL-wVU" secondAttribute="bottom" constant="10" id="Bkf-US-KzP"/>
-                            <constraint firstItem="pq6-sL-wVU" firstAttribute="top" secondItem="shM-Ac-CoI" secondAttribute="top" id="J1P-bC-HVR"/>
+                            <constraint firstItem="pq6-sL-wVU" firstAttribute="top" secondItem="shM-Ac-CoI" secondAttribute="top" constant="4" id="J1P-bC-HVR"/>
                             <constraint firstItem="shM-Ac-CoI" firstAttribute="trailing" secondItem="pq6-sL-wVU" secondAttribute="trailing" id="Poh-C5-JQr"/>
                             <constraint firstItem="shM-Ac-CoI" firstAttribute="trailing" secondItem="Mm3-Ui-X2G" secondAttribute="trailing" id="UGJ-y5-mtL"/>
                             <constraint firstItem="4T8-XZ-g62" firstAttribute="leading" secondItem="shM-Ac-CoI" secondAttribute="leading" id="dKF-qj-lhy"/>
@@ -261,6 +258,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="pq6-sL-wVU" id="OYM-4g-obK"/>
+                        <outlet property="collectionheightConstraint" destination="Htp-bv-anV" id="fOT-NM-tLH"/>
                         <outlet property="colorLabel" destination="Cac-mK-vy1" id="4gp-a2-RZT"/>
                         <outlet property="nameLabel" destination="oTC-C2-UEC" id="RGg-Nj-jeF"/>
                         <outlet property="pageControl" destination="Mm3-Ui-X2G" id="JHP-jC-ruC"/>

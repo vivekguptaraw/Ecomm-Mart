@@ -15,6 +15,7 @@ class TrendingHeaderCollectionViewCell: UICollectionViewCell, ConfigurableCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.alpha = 0.8
     }
     
     func configure(_ item: String, at indexPath: IndexPath) {

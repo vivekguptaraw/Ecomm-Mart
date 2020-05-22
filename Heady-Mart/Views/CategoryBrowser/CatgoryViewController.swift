@@ -41,15 +41,16 @@ class CatgoryViewController: UIViewController {
         parentCollectionHeight.constant = Sizes.parentCollectionHeight
         childHeightConstraint.constant = Sizes.childCollectionViewHeight
         self.loadData(name: viewModel?.grandLeafCategory?.name ?? "")
+        parentCollectionView.reloadData()
         toggelLeafMenu(flag: false)
         self.childCategoryCollection.backgroundColor = .clear
         selectedMainCatgoryIndex = 0
         selectedChildCatgoryIndex = 0
+        self.navigationController?.navigationItem.backBarButtonItem?.title = ""
     }
     
     func loadData(name: String) {
         leafSelectionButton.setTitle(name, for: .normal)
-        parentCollectionView.reloadData()
         childCategoryCollection.reloadData()
         leafProductsCollectionView.reloadData()
         self.setLayout(collectionView: childCategoryCollection)
@@ -59,7 +60,6 @@ class CatgoryViewController: UIViewController {
     
     @IBAction func leafSelectionClicked(_ sender: Any) {
         toggelLeafMenu(flag: openChildMenu)
-        //self.viewModel?.setChilds(leafIndex: <#T##Int#>, grandLeafIndex: <#T##Int#>)
     }
     
     func toggelLeafMenu(flag: Bool) {
@@ -74,6 +74,7 @@ class CatgoryViewController: UIViewController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+        setLayout()
     }
     
     func setLayout() {
@@ -101,11 +102,13 @@ extension CatgoryViewController: UICollectionViewDataSource, UICollectionViewDel
                 if let childCat = viewModel?.category?.childCategories?.allObjects as? [ChildCategory], let category = self.getSubCategories(childCats: childCat, index: indexPath.item  ) {
                     cell.configure(category, at: indexPath)
                     if selectedMainCatgoryIndex == indexPath.item {
-                        cell.label.font = UIFont.systemFont(ofSize: 26, weight: .heavy)
+                        cell.label.font = UIFont.systemFont(ofSize: 20, weight: .heavy)
+                        cell.backgroundColor =  UIColor.lightGray.withAlphaComponent(0.05)
                     } else {
-                        cell.label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
+                        cell.label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+                        cell.backgroundColor =  .white
                     }
-                    cell.backgroundColor =  .clear
+                    
                 }
                 
                 return cell
@@ -137,7 +140,15 @@ extension CatgoryViewController: UICollectionViewDataSource, UICollectionViewDel
         if collectionView == parentCollectionView {
             self.selectedMainCatgoryIndex = indexPath.item
             self.viewModel?.setChilds(leafIndex: self.selectedMainCatgoryIndex, grandLeafIndex: 0)
+            
             self.loadData(name: viewModel?.grandLeafs[0].name ?? "")
+            self.parentCollectionView.reloadData()
+            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                //self.parentCollectionView.reloadData()
+            }
+            
+            
         } else if collectionView == childCategoryCollection {
             self.selectedChildCatgoryIndex = indexPath.item
             self.openChildMenu = false
@@ -149,7 +160,9 @@ extension CatgoryViewController: UICollectionViewDataSource, UICollectionViewDel
             }
             
         } else if collectionView == leafProductsCollectionView {
-            
+            if let prods = viewModel?.grandLeafCategory?.products?.allObjects as? [Product] {
+                self.viewModel?.showProductDetail(nav: self.navigationController, product: prods[indexPath.item])
+            }
         }
         
     }
@@ -165,13 +178,12 @@ extension CatgoryViewController: UICollectionViewDataSource, UICollectionViewDel
 }
 
 extension CatgoryViewController {
-    
     func setLayout(collectionView: UICollectionView) {
         //guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         if collectionView == parentCollectionView {
             let w = Sizes.parentCollectionCellWidth
-            let h = Sizes.parentCollectionHeight
+            let h = Sizes.parentCollectionHeight - 4
             layout.itemSize = CGSize(width: w, height: h)
             layout.minimumInteritemSpacing = 5
             layout.minimumLineSpacing = 8

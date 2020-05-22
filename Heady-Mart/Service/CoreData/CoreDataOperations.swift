@@ -114,7 +114,9 @@ struct CoreDataOperations {
         
         if let rankingsArray = rankingsResponse {
             for rankingResponse in rankingsArray {
-                let ranking = Ranking(context: CoreDataManager.shared.managedObjectContext)
+                let ranking: Ranking = Ranking.findOrCreate(condition:"ranking = '\(rankingResponse.ranking ?? "")'", MOC: CoreDataManager.shared.managedObjectContext)
+                
+                //let ranking = Ranking(context: CoreDataManager.shared.managedObjectContext)
                 ranking.ranking = rankingResponse.ranking ?? ""
                 if let rankingProductApiResp = rankingResponse.products {
                     for rankingProduct in rankingProductApiResp {
