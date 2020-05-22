@@ -6,7 +6,11 @@
 //  Copyright © 2020 Vivek Gupta. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+enum  StoryBoard: String {
+    case Main
+}
 
 struct Helper {
     
@@ -17,5 +21,10 @@ struct Helper {
             return date
         }
         return nil
+    }
+    
+    static func getViewControllerFromStoryboard(toStoryBoard storyBoardName: StoryBoard, initialViewControllerIdentifier identifier: String) -> UIViewController? {
+        let storyBoard = UIStoryboard(name: storyBoardName.rawValue, bundle: nil)
+        return storyBoard.instantiateViewController(withIdentifier: identifier)
     }
 }

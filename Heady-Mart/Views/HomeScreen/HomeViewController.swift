@@ -17,10 +17,12 @@ class HomeViewController: UIViewController {
     var trendingContentCollectionView: UICollectionView!
     var viewModel: HomeViewModel?
     var selectedRankIndex = 0
+    private var navigator: HomeNavigatorProtocol?
     
     lazy var header: CategoryHeaderView = {
         let hdr = CategoryHeaderView.loadFromNib()
         hdr.frame = CGRect(origin: .zero, size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width * 0.38))
+        hdr.delegate = self
         return hdr
     }()
     
@@ -28,6 +30,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         self.setViewModel()
         self.topView.addSubview(header)
+        self.title = "Heady Mart"
+        navigator = HomeNavigator(navigator: self.navigationController)
     }
     
     override func viewWillLayoutSubviews() {
@@ -100,6 +104,7 @@ class HomeViewController: UIViewController {
             self.viewModel?.trendingContentDataSource?.provider.items = [products]
             self.viewModel?.trendingContentDataSource?.collectionView.reloadData()
             self.viewModel?.trendingContentDataSource?.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
+            
         }
         
     }
@@ -115,7 +120,8 @@ class HomeViewController: UIViewController {
             layout.minimumLineSpacing = 8
             layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         } else {
-            layout.itemSize = CGSize(width: (collectionVw.frame.width / 2.0) - (5 + 10 ), height: itemH)
+            let w = (collectionVw.frame.width / 3.0) - (5 + 10 )
+            layout.itemSize = CGSize(width: w, height: w)
             layout.minimumInteritemSpacing = 5
             layout.minimumLineSpacing = 8
             layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
@@ -144,4 +150,11 @@ class HomeViewController: UIViewController {
         return vw
     }()
 }
+
+extension HomeViewController: ICategoriesHeaderDelegate {
+    func selected(category object: Category) {
+        self.navigator?.showCategoryScreen(category: object)
+    }
+}
+
 

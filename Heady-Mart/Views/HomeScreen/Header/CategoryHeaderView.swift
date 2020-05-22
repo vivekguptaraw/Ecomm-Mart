@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ICategoriesHeaderDelegate : class {
-    func selected(product object: Product)
+    func selected(category object: Category)
 }
 
 class CategoryHeaderView: UIView, NibLoadableProtocol {
@@ -65,6 +65,9 @@ extension CategoryHeaderView: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if categories[indexPath.row] != nil {
+            self.delegate?.selected(category: categories[indexPath.row])
+        }
         
     }
     

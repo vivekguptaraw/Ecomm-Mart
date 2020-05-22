@@ -8,6 +8,18 @@
 
 import UIKit
 
+protocol StoryBoardID: class {}
+
+extension StoryBoardID where Self: UIViewController {
+    static var storyBoardID: String {
+        return String(describing: self)
+    }
+}
+
+extension UIViewController: StoryBoardID {
+    
+}
+
 protocol NibLoadableProtocol {
     static var defaultNibName: String { get }
     static func loadFromNib() -> Self
