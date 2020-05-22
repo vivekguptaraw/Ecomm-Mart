@@ -20,9 +20,6 @@ class CategoryHeaderView: UIView, NibLoadableProtocol {
     var categories: [Category]! {
         didSet {
             if categories != nil, categories.count > 0 {
-                let rowsCount = (categories.count % 2 == 0) ? (categories.count/2) : (categories.count/2) + 1
-                let padding = rowsCount * 12
-                //collectionViewHeightConstraint.constant = CGFloat(rowsCount * AppConstants.ViewFrames.Height.categoryCell) + CGFloat(padding)
                 collectionView.reloadData()
             }
         }
@@ -36,10 +33,16 @@ class CategoryHeaderView: UIView, NibLoadableProtocol {
         
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             let w = UIScreen.main.bounds.width * 0.4
-            layout.itemSize = CGSize(width: w, height: self.collectionView.frame.height - 5)
+            layout.itemSize = CGSize(width: w, height: self.collectionView.frame.height - 10)
+            layout.scrollDirection = .horizontal
             layout.minimumInteritemSpacing = 10
             layout.invalidateLayout()
         }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
     }
 }
 
@@ -52,9 +55,11 @@ extension CategoryHeaderView: UICollectionViewDataSource, UICollectionViewDelega
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.defaultNibName, for: indexPath) as? CategoryCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.backgroundColor = .random
+        cell.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         cell.titleLabel.text = categories[indexPath.row].name ?? ""
+        cell.titleLabel.textColor = .white
         cell.layer.cornerRadius = 12
+        cell.layer.borderWidth = 1
         cell.clipsToBounds = true
         return cell
     }

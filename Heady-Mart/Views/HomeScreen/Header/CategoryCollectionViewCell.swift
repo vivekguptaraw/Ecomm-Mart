@@ -18,6 +18,10 @@ class CategoryCollectionViewCell: UICollectionViewCell, ConfigurableCell {
         // Initialization code
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+    }
+    
     func configure(_ item: Category, at indexPath: IndexPath) {
         
     }

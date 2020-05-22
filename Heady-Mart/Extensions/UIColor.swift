@@ -10,16 +10,16 @@ import UIKit
 
 extension UIColor {
     static var random: UIColor {
-        return UIColor(red: .random(in: 3...4),
-                       green: .random(in: 5...6),
-                       blue: .random(in: 7...8),
-                       alpha: 0.5)
+        return UIColor(red: .random(in: 0...1),
+                       green: .random(in: 0...1),
+                       blue: .random(in: 0...1),
+                       alpha: 0.45)
     }
     
     static var randomDark: UIColor {
-           return UIColor(red: .random(in: 3...4),
-                          green: .random(in: 5...6),
-                          blue: .random(in: 7...8),
-                          alpha: 1)
+        return UIColor(red: .random(in: 0...1),
+                       green: .random(in: 0...1),
+                       blue: .random(in: 0...1),
+                       alpha: 1.0)
     }
 }
